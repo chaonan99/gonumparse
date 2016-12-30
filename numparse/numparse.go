@@ -1,8 +1,7 @@
 // Copyright 2016 Haonan Chen. All rights reserved.
-
-// This file implements number to english word converter.
 // 2016-12-28
 
+// Package numparse implements number (can be decimal) to English word converter.
 package numparse
 
 import (
@@ -146,6 +145,7 @@ func decimalfn(num string) string {
     return result.String()
 }
 
+// Parse convert input number to English word
 func Parse(num string) string {
     sign := ""
     if num[0] == '-' || num[0] == '+' {
