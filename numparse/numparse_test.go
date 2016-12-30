@@ -38,6 +38,7 @@ func TestConvert(t *testing.T) {
             So(Parse("500"), ShouldEqual, "five hundred")
             So(Parse("123"), ShouldEqual, "one hundred and twenty-three")
             So(Parse("666"), ShouldEqual, "six hundred and sixty-six")
+            So(Parse("1000"), ShouldEqual, "one thousand")
             So(Parse("1024"), ShouldEqual, "one thousand and twenty-four")
         })
         Convey("Negative numbers should convert correctly", func() {

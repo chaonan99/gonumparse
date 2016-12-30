@@ -82,16 +82,18 @@ func hundfn(hundreds, tens, units, mindex byte) string {
 func enword(num []byte) string {
     mill_count := byte(0)
     resRev := make([]string, 0)
+
     for i := len(num) - 1; i >= 0; i -= 3 {
         if i == 0 {
             resRev = append(resRev, hundfn(0, 0, num[i], mill_count))
         } else if i == 1 {
             resRev = append(resRev, hundfn(0, num[i-1], num[i], mill_count))
         } else {
-            resRev = append(resRev, hundfn(num[i-2], num[i-1], num[i], mill_count))
-            if i > 2 && mill_count == 0 && num[i-2] == 0 {
+            beforenum := hundfn(num[i-2], num[i-1], num[i], mill_count)
+            resRev = append(resRev, beforenum)
+            if i > 2 && mill_count == 0 && num[i-2] == 0 && beforenum != "" {
                 resRev = append(resRev, " and ")
-            } else if i > 2 {
+            } else if i > 2 && beforenum != "" {
                 resRev = append(resRev, ", ")
             }
             mill_count ++
