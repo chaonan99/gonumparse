@@ -49,7 +49,7 @@ func TestConvert(t *testing.T) {
     })
 }
 
-func ExampleNumber2Word() {
+func ExampleParse() {
     var str string
     str = Parse("17")   // outputs "seventeen"
     str = Parse("10024") // outputs "ten thousand and twenty-four"
